@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        UISearchBar.appearance().barTintColor = UIColor.soccerColor()
+        UISearchBar.appearance().tintColor = UIColor.whiteColor()
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.soccerColor()
         return true
     }
 
@@ -43,4 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
+extension UIColor {
+    static func soccerColor() -> UIColor {
+        return UIColor(red: 100.0/255.0, green: 186.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    }
+}

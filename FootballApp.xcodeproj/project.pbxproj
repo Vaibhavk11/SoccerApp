@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845156091D7820D500A357BD /* CompititionTableViewCell.swift */; };
+		8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451560C1D782C8700A357BD /* VKCheckbox.swift */; };
 		84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1498F1D7708A800E99CCA /* AppDelegate.swift */; };
 		84D149921D7708A800E99CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D149911D7708A800E99CCA /* ViewController.swift */; };
 		84D149951D7708A800E99CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D149931D7708A800E99CCA /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		845156091D7820D500A357BD /* CompititionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompititionTableViewCell.swift; sourceTree = "<group>"; };
+		8451560C1D782C8700A357BD /* VKCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKCheckbox.swift; sourceTree = "<group>"; };
 		84D1498C1D7708A800E99CCA /* FootballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D1498F1D7708A800E99CCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D149911D7708A800E99CCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				84DA55671D7816AC0060E6BC /* Images */,
 				8451560B1D78213400A357BD /* Cell */,
 				84DA555E1D77FF560060E6BC /* Modal Class */,
+				8451560C1D782C8700A357BD /* VKCheckbox.swift */,
 				84D1498F1D7708A800E99CCA /* AppDelegate.swift */,
 				84D149911D7708A800E99CCA /* ViewController.swift */,
 				84D149931D7708A800E99CCA /* Main.storyboard */,
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D149921D7708A800E99CCA /* ViewController.swift in Sources */,
+				8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */,
 				8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */,
 				84DA555D1D77FF510060E6BC /* CompititionModal.swift in Sources */,
 				84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */,

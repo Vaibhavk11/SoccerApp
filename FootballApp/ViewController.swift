@@ -11,7 +11,6 @@ class ViewController: UITableViewController,ConstantProtocol {
     
     var compitionModal = [CompititionModal]()
     var filteredCompition = [CompititionModal]()
-    var imageNameArray = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -21,7 +20,6 @@ class ViewController: UITableViewController,ConstantProtocol {
         self.setupUI()
         let constantManager = Constant()
         constantManager.delegate=self;
-        imageNameArray=["","","",""]
         let url = NSURL(string: String (format: "%@%@",Constant.MAINDOMAIN,Constant.GETCOMPITITION))
         constantManager.getDatafromServer(url!)
         
@@ -49,6 +47,17 @@ class ViewController: UITableViewController,ConstantProtocol {
         return compitionModal.count
         
     }
+   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView .deselectRowAtIndexPath(indexPath, animated: true)
+    let cell = tableView .cellForRowAtIndexPath(indexPath) as! CompititionTableViewCell
+    if cell.checkBox.isOn() {
+        cell.checkBox .setOn(false, animated: false)
+        cell.checkBox.hidden=true
+    }else{
+        cell.checkBox .setOn(true, animated: true)
+        cell.checkBox.hidden=false
+    }
+    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CompititionTableViewCell
         let compitition: CompititionModal
@@ -66,6 +75,14 @@ class ViewController: UITableViewController,ConstantProtocol {
             print("YES")
         }else{
             cell.imageHolder?.image=UIImage(named:"UEFA Champions League.jpeg")
+        }
+        if cell.checkBox.isOn() {
+           
+            cell.checkBox .setOn(true, animated: true)
+            cell.checkBox.hidden=false
+        }else{
+            cell.checkBox .setOn(false, animated: false)
+            cell.checkBox.hidden=true
         }
         cell.imageHolder?.layer.cornerRadius=((cell.imageHolder?.frame.height)!/2)
         cell.imageHolder?.clipsToBounds=true

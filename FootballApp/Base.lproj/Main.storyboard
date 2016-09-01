@@ -40,6 +40,10 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ke6-vd-diY" customClass="VKCheckbox" customModule="FootballApp" customModuleProvider="target">
+                                            <rect key="frame" x="56" y="38" width="25" height="25"/>
+                                            <color key="backgroundColor" red="0.51438421560000003" green="0.76090804889999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FdY-tY-REq" firstAttribute="top" secondItem="ccm-6p-Hfb" secondAttribute="topMargin" constant="-4" id="866-kg-1zi"/>
@@ -47,12 +51,17 @@
                                         <constraint firstItem="q8U-sk-bCR" firstAttribute="leading" secondItem="FdY-tY-REq" secondAttribute="trailing" constant="17" id="Bhu-HE-D1n"/>
                                         <constraint firstItem="q8U-sk-bCR" firstAttribute="leading" secondItem="r3q-8I-uNM" secondAttribute="leading" id="FLB-yW-krW"/>
                                         <constraint firstItem="r3q-8I-uNM" firstAttribute="top" secondItem="q8U-sk-bCR" secondAttribute="bottom" constant="8" symbolic="YES" id="IWt-Oo-kw9"/>
+                                        <constraint firstItem="ke6-vd-diY" firstAttribute="top" secondItem="ccm-6p-Hfb" secondAttribute="topMargin" constant="30" id="N3u-yG-jdF"/>
+                                        <constraint firstItem="ke6-vd-diY" firstAttribute="leading" secondItem="ccm-6p-Hfb" secondAttribute="leadingMargin" constant="48" id="ZAZ-Ub-rui"/>
                                         <constraint firstItem="q8U-sk-bCR" firstAttribute="top" secondItem="ccm-6p-Hfb" secondAttribute="topMargin" constant="1" id="dcV-76-EmI"/>
+                                        <constraint firstItem="ke6-vd-diY" firstAttribute="bottom" secondItem="r3q-8I-uNM" secondAttribute="bottom" constant="4" id="iaw-qH-u3O"/>
                                         <constraint firstItem="FdY-tY-REq" firstAttribute="centerY" secondItem="ccm-6p-Hfb" secondAttribute="centerY" id="msa-BM-2AO"/>
+                                        <constraint firstItem="q8U-sk-bCR" firstAttribute="leading" secondItem="ke6-vd-diY" secondAttribute="trailing" constant="13" id="plb-bB-Al4"/>
                                         <constraint firstItem="FdY-tY-REq" firstAttribute="leading" secondItem="ccm-6p-Hfb" secondAttribute="leadingMargin" constant="8" id="rWz-Ia-eqa"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="checkBox" destination="ke6-vd-diY" id="JYN-us-ZC3"/>
                                     <outlet property="imageHolder" destination="FdY-tY-REq" id="fYZ-P4-Ne3"/>
                                     <outlet property="nameLabel" destination="q8U-sk-bCR" id="8gn-UQ-zix"/>
                                     <outlet property="regionLabel" destination="r3q-8I-uNM" id="H0F-4f-1jS"/>
@@ -78,6 +87,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="hbd-OO-9cx">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.51438421557919312" green="0.76090804887821495" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Lc8-Jb-lia" kind="relationship" relationship="viewControllers" id="VRA-2M-dqR"/>
@@ -96,6 +106,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zMx-pb-k3u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.39376428682248454" green="0.73103255632856445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -104,7 +115,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg6-69-dfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122" y="221"/>
+            <point key="canvasLocation" x="1076" y="86"/>
         </scene>
     </scenes>
 </document>
