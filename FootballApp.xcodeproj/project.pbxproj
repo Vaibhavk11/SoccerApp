@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845156091D7820D500A357BD /* CompititionTableViewCell.swift */; };
 		84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1498F1D7708A800E99CCA /* AppDelegate.swift */; };
 		84D149921D7708A800E99CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D149911D7708A800E99CCA /* ViewController.swift */; };
 		84D149951D7708A800E99CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D149931D7708A800E99CCA /* Main.storyboard */; };
 		84D149971D7708A800E99CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D149961D7708A800E99CCA /* Assets.xcassets */; };
 		84D1499A1D7708A800E99CCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D149981D7708A800E99CCA /* LaunchScreen.storyboard */; };
+		84DA555B1D77FD080060E6BC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA555A1D77FD080060E6BC /* Constant.swift */; };
+		84DA555D1D77FF510060E6BC /* CompititionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA555C1D77FF510060E6BC /* CompititionModal.swift */; };
+		84DA55661D7816A80060E6BC /* UEFA Champions League.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84DA55651D7816A80060E6BC /* UEFA Champions League.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845156091D7820D500A357BD /* CompititionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompititionTableViewCell.swift; sourceTree = "<group>"; };
 		84D1498C1D7708A800E99CCA /* FootballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D1498F1D7708A800E99CCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D149911D7708A800E99CCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		84D149961D7708A800E99CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D149991D7708A800E99CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D1499B1D7708A800E99CCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DA555A1D77FD080060E6BC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		84DA555C1D77FF510060E6BC /* CompititionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompititionModal.swift; sourceTree = "<group>"; };
+		84DA55651D7816A80060E6BC /* UEFA Champions League.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "UEFA Champions League.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8451560B1D78213400A357BD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				845156091D7820D500A357BD /* CompititionTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		84D149831D7708A800E99CCA = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +70,34 @@
 		84D1498E1D7708A800E99CCA /* FootballApp */ = {
 			isa = PBXGroup;
 			children = (
+				84DA55671D7816AC0060E6BC /* Images */,
+				8451560B1D78213400A357BD /* Cell */,
+				84DA555E1D77FF560060E6BC /* Modal Class */,
 				84D1498F1D7708A800E99CCA /* AppDelegate.swift */,
 				84D149911D7708A800E99CCA /* ViewController.swift */,
 				84D149931D7708A800E99CCA /* Main.storyboard */,
+				84DA555A1D77FD080060E6BC /* Constant.swift */,
 				84D149961D7708A800E99CCA /* Assets.xcassets */,
 				84D149981D7708A800E99CCA /* LaunchScreen.storyboard */,
 				84D1499B1D7708A800E99CCA /* Info.plist */,
 			);
 			path = FootballApp;
+			sourceTree = "<group>";
+		};
+		84DA555E1D77FF560060E6BC /* Modal Class */ = {
+			isa = PBXGroup;
+			children = (
+				84DA555C1D77FF510060E6BC /* CompititionModal.swift */,
+			);
+			name = "Modal Class";
+			sourceTree = "<group>";
+		};
+		84DA55671D7816AC0060E6BC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84DA55651D7816A80060E6BC /* UEFA Champions League.jpeg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DA55661D7816A80060E6BC /* UEFA Champions League.jpeg in Resources */,
 				84D1499A1D7708A800E99CCA /* LaunchScreen.storyboard in Resources */,
 				84D149971D7708A800E99CCA /* Assets.xcassets in Resources */,
 				84D149951D7708A800E99CCA /* Main.storyboard in Resources */,
@@ -136,7 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D149921D7708A800E99CCA /* ViewController.swift in Sources */,
+				8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */,
+				84DA555D1D77FF510060E6BC /* CompititionModal.swift in Sources */,
 				84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */,
+				84DA555B1D77FD080060E6BC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +291,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FootballApp",
+				);
 				INFOPLIST_FILE = FootballApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.FootballApp;
@@ -262,6 +307,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FootballApp",
+				);
 				INFOPLIST_FILE = FootballApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.FootballApp;
@@ -288,6 +338,7 @@
 				84D149A01D7708A800E99CCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
