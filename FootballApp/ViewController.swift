@@ -74,7 +74,6 @@ class ViewController: UITableViewController,ConstantProtocol {
         cell.regionLabel!.text = compitition.region
         cell.imageHolder?.image=UIImage(named: compitition.name+".jpeg")
         if (cell.imageHolder.image != nil) {
-            print("YES")
         }else{
             cell.imageHolder?.image=UIImage(named:"UEFA Champions League.jpeg")
         }
@@ -105,7 +104,6 @@ class ViewController: UITableViewController,ConstantProtocol {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.bounds
         tableView.backgroundView!.addSubview(blurEffectView)
-
     }
 
     
