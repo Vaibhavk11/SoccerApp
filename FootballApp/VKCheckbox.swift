@@ -178,20 +178,23 @@ extension VKCheckbox
      */
     func setOn(on: Bool, animated: Bool)
     {
-        self.on = on
-        self.showCheckmark(on, animated: animated)
-        
-        if animated
-        {
-            UIView.animateWithDuration(0.275, animations:
+        dispatch_async(dispatch_get_main_queue(),{
+            self.on = on
+            self.showCheckmark(on, animated: animated)
+            
+            if animated
+            {
+                UIView.animateWithDuration(0.3, animations:
+                {
+                        self.backgroundColor = on ? self.bgColorSelected : self.bgColor
+                })
+            }
+            else
             {
                 self.backgroundColor = on ? self.bgColorSelected : self.bgColor
-            })
-        }
-        else
-        {
-            self.backgroundColor = on ? self.bgColorSelected : self.bgColor
-        }
+            }
+        });
+        
     }
     
     /**
