@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 class ViewController: UITableViewController,ConstantProtocol {
     
     var compitionModal = [CompititionModal]()
@@ -24,8 +25,19 @@ class ViewController: UITableViewController,ConstantProtocol {
         constantManager.delegate=self;
         let url = NSURL(string: String (format: "%@%@",Constant.MAINDOMAIN,Constant.GETCOMPITITION))
         constantManager.getDatafromServer(url!)
+
+        let geting = CoreDataController.getData("Compititon")
         
-        //if you have more UIViews, use an insertSubview API to place it where needed
+        for comp in geting as [NSManagedObject] {
+            let compitition = CompititionModal()
+            compitition.id=comp.valueForKey("id") as! String
+            compitition.name=comp.valueForKey("name") as! String
+            compitition.region=comp.valueForKey("region") as! String
+            compitionModal.append(compitition)
+        }
+        tableView.reloadData()
+      
+//if you have more UIViews, use an insertSubview API to place it where needed
             
 //        self.view.backgroundColor=UIColor.init(patternImage: UIImage.init(named: "football-backgrounds-4.jpg")!)
         
@@ -115,17 +127,18 @@ class ViewController: UITableViewController,ConstantProtocol {
     }
     
     func dataRecieveFromServer(sender: NSData) {
-        
         do{
             let datastring = try NSJSONSerialization.JSONObjectWithData(sender, options: NSJSONReadingOptions.AllowFragments)
             
             for dict in datastring as! [AnyObject] {
                 
                 let compitition = CompititionModal()
-                compitition.id = dict .valueForKey("id") as! String
-                compitition.name = dict .valueForKey("name") as! String
-                compitition.region = dict .valueForKey("region") as! String
+                compitition.id = dict.valueForKey("id") as! String
+                compitition.name = dict.valueForKey("name") as! String
+                compitition.region = dict.valueForKey("region") as! String
+                
                 compitionModal.append(compitition)
+                CoreDataController.saveName(compitition)
                 print(dict)
                 
                 dispatch_async(dispatch_get_main_queue(),{

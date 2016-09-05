@@ -272,7 +272,7 @@ extension VKCheckmarkView
         checkmarkPath.moveToPoint(CGPointMake(CGRectGetWidth(self.bounds) * 0.28, CGRectGetHeight(self.bounds) * 0.5))
         checkmarkPath.addLineToPoint(CGPointMake(CGRectGetWidth(self.bounds) * 0.42, CGRectGetHeight(self.bounds) * 0.66))
         checkmarkPath.addLineToPoint(CGPointMake(CGRectGetWidth(self.bounds) * 0.72, CGRectGetHeight(self.bounds) * 0.36))
-        checkmarkPath.lineCapStyle  = .Square
+        checkmarkPath.lineCapStyle  = .Round
         self.checkmarkLayer.path    = checkmarkPath.CGPath;
         
         self.checkmarkLayer.strokeColor = self.color.CGColor;

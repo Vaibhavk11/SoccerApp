@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845156091D7820D500A357BD /* CompititionTableViewCell.swift */; };
 		8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451560C1D782C8700A357BD /* VKCheckbox.swift */; };
+		846921F91D7D530100F8391D /* FootballDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846921F71D7D530100F8391D /* FootballDataModel.xcdatamodeld */; };
+		846921FD1D7D53F100F8391D /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846921FC1D7D53F100F8391D /* CoreDataController.swift */; };
 		84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1498F1D7708A800E99CCA /* AppDelegate.swift */; };
 		84D149921D7708A800E99CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D149911D7708A800E99CCA /* ViewController.swift */; };
 		84D149951D7708A800E99CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D149931D7708A800E99CCA /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		845156091D7820D500A357BD /* CompititionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompititionTableViewCell.swift; sourceTree = "<group>"; };
 		8451560C1D782C8700A357BD /* VKCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKCheckbox.swift; sourceTree = "<group>"; };
+		846921F81D7D530100F8391D /* FootballDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FootballDataModel.xcdatamodel; sourceTree = "<group>"; };
+		846921FC1D7D53F100F8391D /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		84D1498C1D7708A800E99CCA /* FootballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D1498F1D7708A800E99CCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D149911D7708A800E99CCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,34 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		846921FA1D7D531200F8391D /* ThirdPartyApi */ = {
+			isa = PBXGroup;
+			children = (
+				8451560C1D782C8700A357BD /* VKCheckbox.swift */,
+			);
+			name = ThirdPartyApi;
+			sourceTree = "<group>";
+		};
+		846921FB1D7D533500F8391D /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				84DA555A1D77FD080060E6BC /* Constant.swift */,
+				846921F71D7D530100F8391D /* FootballDataModel.xcdatamodeld */,
+				84D149961D7708A800E99CCA /* Assets.xcassets */,
+				84D149981D7708A800E99CCA /* LaunchScreen.storyboard */,
+				84D1499B1D7708A800E99CCA /* Info.plist */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		846921FE1D7D540000F8391D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				846921FC1D7D53F100F8391D /* CoreDataController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		84D149831D7708A800E99CCA = {
 			isa = PBXGroup;
 			children = (
@@ -77,14 +109,12 @@
 				84DA55671D7816AC0060E6BC /* Images */,
 				8451560B1D78213400A357BD /* Cell */,
 				84DA555E1D77FF560060E6BC /* Modal Class */,
-				8451560C1D782C8700A357BD /* VKCheckbox.swift */,
+				846921FA1D7D531200F8391D /* ThirdPartyApi */,
+				846921FB1D7D533500F8391D /* Others */,
+				846921FE1D7D540000F8391D /* Controller */,
 				84D1498F1D7708A800E99CCA /* AppDelegate.swift */,
 				84D149911D7708A800E99CCA /* ViewController.swift */,
 				84D149931D7708A800E99CCA /* Main.storyboard */,
-				84DA555A1D77FD080060E6BC /* Constant.swift */,
-				84D149961D7708A800E99CCA /* Assets.xcassets */,
-				84D149981D7708A800E99CCA /* LaunchScreen.storyboard */,
-				84D1499B1D7708A800E99CCA /* Info.plist */,
 			);
 			path = FootballApp;
 			sourceTree = "<group>";
@@ -179,7 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846921F91D7D530100F8391D /* FootballDataModel.xcdatamodeld in Sources */,
 				84D149921D7708A800E99CCA /* ViewController.swift in Sources */,
+				846921FD1D7D53F100F8391D /* CoreDataController.swift in Sources */,
 				8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */,
 				8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */,
 				84DA555D1D77FF510060E6BC /* CompititionModal.swift in Sources */,
@@ -349,6 +381,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		846921F71D7D530100F8391D /* FootballDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				846921F81D7D530100F8391D /* FootballDataModel.xcdatamodel */,
+			);
+			currentVersion = 846921F81D7D530100F8391D /* FootballDataModel.xcdatamodel */;
+			path = FootballDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84D149841D7708A800E99CCA /* Project object */;
 }
