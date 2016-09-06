@@ -26,8 +26,11 @@ class Constant: NSObject {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) -> Void in
-            self.delegate?.dataRecieveFromServer(data!)
-        }
+            
+            if let datas = data{
+                self.delegate?.dataRecieveFromServer(datas)
+            }
+             }
         task.resume()
     }
 }

@@ -34,6 +34,26 @@ class CoreDataController: NSObject {
         }
         return [NSManagedObject()]
     }
+    static  func deleteData(dict:String) {
+        
+        //1
+        let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+
+        let fetchRequest = NSFetchRequest(entityName: dict)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.executeRequest(deleteRequest)
+            try managedContext.save()
+        }
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+
+        
+    }
     
     static func saveName(compitionModal:CompititionModal) {
         

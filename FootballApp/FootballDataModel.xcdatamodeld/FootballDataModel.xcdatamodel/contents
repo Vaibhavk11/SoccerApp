@@ -6,6 +6,6 @@
         <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Compititon" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Compititon" positionX="-3917" positionY="-1089" width="128" height="88"/>
     </elements>
 </model>
