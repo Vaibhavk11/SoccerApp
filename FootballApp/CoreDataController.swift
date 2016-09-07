@@ -61,24 +61,68 @@ class CoreDataController: NSObject {
             UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
-        let entity =  NSEntityDescription.entityForName("Compititon",
-                                                        inManagedObjectContext:managedContext)
         
-        let person = NSManagedObject(entity: entity!,
-                                     insertIntoManagedObjectContext: managedContext)
+        let fetchRequest = NSFetchRequest(entityName: "Compititon")
+        fetchRequest.predicate=NSPredicate(format: "id contains[c] "+compitionModal.id)
         
-        person.setValue(compitionModal.id, forKey: "id")
-        person.setValue(compitionModal.name, forKey: "name")
-        person.setValue(compitionModal.region, forKey: "region")
+//        [request setResultType:NSDictionaryResultType];
+//        [request setReturnsDistinctResults:YES];
+//        [request setPropertiesToFetch:@[@"<#Attribute name#>"]];
+//        
         
         do {
-            try managedContext.save()
+            let results =
+                try managedContext.executeFetchRequest(fetchRequest)
+            let moResult = results as! [NSManagedObject]
             
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            if let tryResulet = moResult.first?.valueForKey("id"){
+                if tryResulet as! String==compitionModal.id{
+                
+                return
+                }else{
+                    
+                    let entity =  NSEntityDescription.entityForName("Compititon",
+                                                                    inManagedObjectContext:managedContext)
+                    
+                    let person = NSManagedObject(entity: entity!,
+                                                 insertIntoManagedObjectContext: managedContext)
+                    
+                    
+                    person.setValue(compitionModal.id, forKey: "id")
+                    person.setValue(compitionModal.name, forKey: "name")
+                    person.setValue(compitionModal.region, forKey: "region")
+                    
+                    do {
+                        try managedContext.save()
+                        
+                    } catch let error as NSError  {
+                        print("Could not save \(error), \(error.userInfo)")
+                    }
+
+                
+                }
+            }else{
+                
+                let entity =  NSEntityDescription.entityForName("Compititon",
+                                                                inManagedObjectContext:managedContext)
+                
+                let person = NSManagedObject(entity: entity!,
+                                             insertIntoManagedObjectContext: managedContext)
+                
+                
+                person.setValue(compitionModal.id, forKey: "id")
+                person.setValue(compitionModal.name, forKey: "name")
+                person.setValue(compitionModal.region, forKey: "region")
+                
+                do {
+                    try managedContext.save()
+                    
+                } catch let error as NSError  {
+                    print("Could not save \(error), \(error.userInfo)")
+                }
+            }
+         } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-    
-    
-    
 }

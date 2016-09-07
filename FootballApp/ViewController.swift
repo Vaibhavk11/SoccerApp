@@ -26,6 +26,16 @@ class ViewController: UITableViewController,ConstantProtocol {
         let url = NSURL(string: String (format: "%@%@",Constant.MAINDOMAIN,Constant.GETCOMPITITION))
         constantManager.getDatafromServer(url!)
 
+      self.tableUpdate()
+      
+//if you have more UIViews, use an insertSubview API to place it where needed
+            
+//        self.view.backgroundColor=UIColor.init(patternImage: UIImage.init(named: "football-backgrounds-4.jpg")!)
+        
+    }
+    
+    func tableUpdate()  {
+        compitionModal.removeAll()
         let geting = CoreDataController.getData("Compititon")
         
         for comp in geting as [NSManagedObject] {
@@ -34,13 +44,11 @@ class ViewController: UITableViewController,ConstantProtocol {
             compitition.name=comp.valueForKey("name") as! String
             compitition.region=comp.valueForKey("region") as! String
             compitionModal.append(compitition)
+            self.tableView.reloadData()
+
         }
-        tableView.reloadData()
-      
-//if you have more UIViews, use an insertSubview API to place it where needed
-            
-//        self.view.backgroundColor=UIColor.init(patternImage: UIImage.init(named: "football-backgrounds-4.jpg")!)
-        
+//      dispatch_async(dispatch_get_main_queue()) { 
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -136,14 +144,10 @@ class ViewController: UITableViewController,ConstantProtocol {
                 compitition.id = dict.valueForKey("id") as! String
                 compitition.name = dict.valueForKey("name") as! String
                 compitition.region = dict.valueForKey("region") as! String
-                
-                compitionModal.append(compitition)
                 CoreDataController.saveName(compitition)
                 print(dict)
-                
-                dispatch_async(dispatch_get_main_queue(),{
-                    self.tableView.reloadData()
-                });
+                self.tableUpdate()
+             
             }
         }
         catch{
