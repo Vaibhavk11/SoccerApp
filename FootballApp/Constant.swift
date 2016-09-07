@@ -30,7 +30,7 @@ class Constant: NSObject {
             if let datas = data{
                 self.delegate?.dataRecieveFromServer(datas)
             }
-             }
+        }
         task.resume()
     }
 }

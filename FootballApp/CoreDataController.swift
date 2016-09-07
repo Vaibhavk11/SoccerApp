@@ -40,7 +40,7 @@ class CoreDataController: NSObject {
         let appDelegate =
             UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-
+        
         let fetchRequest = NSFetchRequest(entityName: dict)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
@@ -51,7 +51,7 @@ class CoreDataController: NSObject {
         catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-
+        
         
     }
     
@@ -65,10 +65,10 @@ class CoreDataController: NSObject {
         let fetchRequest = NSFetchRequest(entityName: "Compititon")
         fetchRequest.predicate=NSPredicate(format: "id contains[c] "+compitionModal.id)
         
-//        [request setResultType:NSDictionaryResultType];
-//        [request setReturnsDistinctResults:YES];
-//        [request setPropertiesToFetch:@[@"<#Attribute name#>"]];
-//        
+        //        [request setResultType:NSDictionaryResultType];
+        //        [request setReturnsDistinctResults:YES];
+        //        [request setPropertiesToFetch:@[@"<#Attribute name#>"]];
+        //
         
         do {
             let results =
@@ -77,8 +77,8 @@ class CoreDataController: NSObject {
             
             if let tryResulet = moResult.first?.valueForKey("id"){
                 if tryResulet as! String==compitionModal.id{
-                
-                return
+                    
+                    return
                 }else{
                     
                     let entity =  NSEntityDescription.entityForName("Compititon",
@@ -98,8 +98,8 @@ class CoreDataController: NSObject {
                     } catch let error as NSError  {
                         print("Could not save \(error), \(error.userInfo)")
                     }
-
-                
+                    
+                    
                 }
             }else{
                 
@@ -121,7 +121,7 @@ class CoreDataController: NSObject {
                     print("Could not save \(error), \(error.userInfo)")
                 }
             }
-         } catch let error as NSError {
+        } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }

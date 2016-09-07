@@ -12,7 +12,7 @@ class CompititionTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var regionLabel: UILabel!
     @IBOutlet var imageHolder: UIImageView!
-
+    
     @IBOutlet var checkBox: VKCheckbox!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,11 +28,11 @@ class CompititionTableViewCell: UITableViewCell {
         checkBox.borderWidth      = 2
         checkBox.cornerRadius     = CGRectGetHeight(checkBox.frame) / 2
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

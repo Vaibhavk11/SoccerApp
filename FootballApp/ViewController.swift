@@ -15,6 +15,8 @@ class ViewController: UITableViewController,ConstantProtocol {
     var cellSelected = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //        http://api.football-api.com/2.0/competitions?Authorization=565ec012251f932ea4000001393b4115a8bf4bf551672b0543e35683
@@ -25,37 +27,22 @@ class ViewController: UITableViewController,ConstantProtocol {
         constantManager.delegate=self;
         let url = NSURL(string: String (format: "%@%@",Constant.MAINDOMAIN,Constant.GETCOMPITITION))
         constantManager.getDatafromServer(url!)
-
-      self.tableUpdate()
-      
-//if you have more UIViews, use an insertSubview API to place it where needed
-            
-//        self.view.backgroundColor=UIColor.init(patternImage: UIImage.init(named: "football-backgrounds-4.jpg")!)
+        
+        self.tableUpdate()
+        
+        //if you have more UIViews, use an insertSubview API to place it where needed
+        
+        //        self.view.backgroundColor=UIColor.init(patternImage: UIImage.init(named: "football-backgrounds-4.jpg")!)
         
     }
     
-    func tableUpdate()  {
-        compitionModal.removeAll()
-        let geting = CoreDataController.getData("Compititon")
-        
-        for comp in geting as [NSManagedObject] {
-            let compitition = CompititionModal()
-            compitition.id=comp.valueForKey("id") as! String
-            compitition.name=comp.valueForKey("name") as! String
-            compitition.region=comp.valueForKey("region") as! String
-            compitionModal.append(compitition)
-           
-
-        }
-      dispatch_async(dispatch_get_main_queue()) {
-        self.tableView.reloadData()
-        }
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -109,8 +96,8 @@ class ViewController: UITableViewController,ConstantProtocol {
             cell.checkBox.setOn(false)
         }
         return cell
- 
-}
+        
+    }
     
     func setupUI()  {
         searchController.searchResultsUpdater = self
@@ -119,14 +106,29 @@ class ViewController: UITableViewController,ConstantProtocol {
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         tableView.backgroundView = UIImageView(image: UIImage(named: "football-backgrounds-4.jpg"))
-//        navigationController?.hidesBarsOnSwipe = true
+        //        navigationController?.hidesBarsOnSwipe = true
         tableView.backgroundColor = UIColor.clearColor()
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.bounds
         tableView.backgroundView!.addSubview(blurEffectView)
     }
-
+    
+    func tableUpdate()  {
+        compitionModal.removeAll()
+        let geting = CoreDataController.getData("Compititon")
+        
+        for comp in geting as [NSManagedObject] {
+            let compitition = CompititionModal()
+            compitition.id=comp.valueForKey("id") as! String
+            compitition.name=comp.valueForKey("name") as! String
+            compitition.region=comp.valueForKey("region") as! String
+            compitionModal.append(compitition)
+        }
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+        }
+    }
     
     func filterContentForSearchText(searchText: String) {
         filteredCompition = compitionModal.filter({( compitition : CompititionModal) -> Bool in
@@ -150,7 +152,7 @@ class ViewController: UITableViewController,ConstantProtocol {
             }
             
             self.tableUpdate()
-
+            
         }
         catch{
             print("Error")

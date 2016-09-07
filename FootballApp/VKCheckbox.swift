@@ -20,7 +20,7 @@ class VKCheckbox: UIView
      - See: isOn()
      */
     private var on: Bool = false
-    {
+        {
         didSet
         {
             self.checkboxValueChangedBlock?(isOn: on)
@@ -38,7 +38,7 @@ class VKCheckbox: UIView
      Set background color of checkbox
      */
     var bgColor: UIColor = UIColor.clearColor()
-    {
+        {
         didSet
         {
             if !self.isOn()
@@ -52,7 +52,7 @@ class VKCheckbox: UIView
      Set background color of checkbox in selected state
      */
     var bgColorSelected = UIColor.clearColor()
-    {
+        {
         didSet
         {
             if self.isOn()
@@ -66,7 +66,7 @@ class VKCheckbox: UIView
      Set checkmark color
      */
     var color: UIColor = UIColor.blueColor()
-    {
+        {
         didSet
         {
             self.checkmark.color = color
@@ -77,7 +77,7 @@ class VKCheckbox: UIView
      Set checkbox border width
      */
     var borderWidth: CGFloat = 0
-    {
+        {
         didSet
         {
             self.layer.borderWidth = borderWidth
@@ -88,7 +88,7 @@ class VKCheckbox: UIView
      Set checkbox border color
      */
     var borderColor: UIColor!
-    {
+        {
         didSet
         {
             self.layer.borderColor = borderColor.CGColor
@@ -99,7 +99,7 @@ class VKCheckbox: UIView
      Set checkbox corner radius
      */
     var cornerRadius: CGFloat = 0
-    {
+        {
         didSet
         {
             self.layer.cornerRadius = cornerRadius
@@ -185,7 +185,7 @@ extension VKCheckbox
             if animated
             {
                 UIView.animateWithDuration(0.3, animations:
-                {
+                    {
                         self.backgroundColor = on ? self.bgColorSelected : self.bgColor
                 })
             }
@@ -306,9 +306,9 @@ extension VKCheckmarkView
         }
         
         UIView.animateWithDuration(duration, animations:
-        {
-            self.alpha = 0
-        })
+            {
+                self.alpha = 0
+            })
         {
             (completed) in
             self.checkmarkLayer.removeFromSuperlayer()
