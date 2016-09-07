@@ -44,11 +44,12 @@ class ViewController: UITableViewController,ConstantProtocol {
             compitition.name=comp.valueForKey("name") as! String
             compitition.region=comp.valueForKey("region") as! String
             compitionModal.append(compitition)
-            self.tableView.reloadData()
+           
 
         }
-//      dispatch_async(dispatch_get_main_queue()) { 
-//        }
+      dispatch_async(dispatch_get_main_queue()) {
+        self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -146,9 +147,10 @@ class ViewController: UITableViewController,ConstantProtocol {
                 compitition.region = dict.valueForKey("region") as! String
                 CoreDataController.saveName(compitition)
                 print(dict)
-                self.tableUpdate()
-             
             }
+            
+            self.tableUpdate()
+
         }
         catch{
             print("Error")
