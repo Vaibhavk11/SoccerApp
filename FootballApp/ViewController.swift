@@ -57,17 +57,6 @@ class ViewController: UITableViewController,ConstantProtocol {
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView .deselectRowAtIndexPath(indexPath, animated: true)
-        
-        if cellSelected.contains(String(format: "%d",indexPath.row)){
-            cellSelected.removeAtIndex(cellSelected.indexOf(String(format: "%d",indexPath.row))!)
-        }else{
-            cellSelected.append(String(format: "%d",indexPath.row))
-        }
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CompititionTableViewCell
         let compitition: CompititionModal
@@ -76,7 +65,17 @@ class ViewController: UITableViewController,ConstantProtocol {
             compitition = filteredCompition[indexPath.row]
         } else {
             compitition = compitionModal[indexPath.row]
+            
+                   }
+        
+        if cellSelected.contains(compitition.id){
+            cell.checkBox.hidden=false
+            cell.checkBox.setOn(true)
+        }else{
+            cell.checkBox.hidden=true
+            cell.checkBox.setOn(false)
         }
+
         
         cell.nameLabel!.text = compitition.name
         cell.regionLabel!.text = compitition.region
@@ -88,16 +87,38 @@ class ViewController: UITableViewController,ConstantProtocol {
         cell.imageHolder?.layer.cornerRadius=((cell.imageHolder?.frame.height)!/2)
         cell.imageHolder?.clipsToBounds=true
         
-        if cellSelected.contains(String(format: "%d",indexPath.row)){
-            cell.checkBox.hidden=false
-            cell.checkBox.setOn(true)
-        }else{
-            cell.checkBox.hidden=true
-            cell.checkBox.setOn(false)
-        }
+       
         return cell
         
     }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let compitition: CompititionModal
+
+        if searchController.active && searchController.searchBar.text != "" {
+            compitition = filteredCompition[indexPath.row]
+            if cellSelected.contains(compitition.id){
+                cellSelected.removeAtIndex(cellSelected.indexOf(compitition.id)!)
+            }else{
+                cellSelected.append(compitition.id)
+            }
+
+        } else {
+            compitition = compitionModal[indexPath.row]
+
+            if cellSelected.contains(compitition.id){
+                cellSelected.removeAtIndex(cellSelected.indexOf(compitition.id)!)
+            }else{
+                cellSelected.append(compitition.id)
+            }
+        }
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+
+    }
+    
     
     func setupUI()  {
         searchController.searchResultsUpdater = self

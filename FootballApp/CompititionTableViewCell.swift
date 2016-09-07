@@ -27,6 +27,7 @@ class CompititionTableViewCell: UITableViewCell {
         checkBox.borderColor      = UIColor.whiteColor()
         checkBox.borderWidth      = 2
         checkBox.cornerRadius     = CGRectGetHeight(checkBox.frame) / 2
+        checkBox.userInteractionEnabled=false
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
