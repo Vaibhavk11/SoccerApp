@@ -13,6 +13,8 @@ class ViewController: UITableViewController,ConstantProtocol {
     var compitionModal = [CompititionModal]()
     var filteredCompition = [CompititionModal]()
     var cellSelected = [String]()
+    var ud = NSUserDefaults.standardUserDefaults()
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - View Life Cycle
@@ -22,10 +24,9 @@ class ViewController: UITableViewController,ConstantProtocol {
         //        http://api.football-api.com/2.0/competitions?Authorization=565ec012251f932ea4000001393b4115a8bf4bf551672b0543e35683
         
         self.setupUI()
-        
         let constantManager = Constant()
         constantManager.delegate=self;
-        let url = NSURL(string: String (format: "%@%@",Constant.MAINDOMAIN,Constant.GETCOMPITITION))
+        let url = NSURL(string: String (format: "%@%@%@",Constant.MAINDOMAIN,Constant.GETCOMPITITION,Constant.AUTHORIZATION))
         constantManager.getDatafromServer(url!)
         
         self.tableUpdate()
@@ -119,7 +120,6 @@ class ViewController: UITableViewController,ConstantProtocol {
 
     }
     
-    
     func setupUI()  {
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -151,14 +151,7 @@ class ViewController: UITableViewController,ConstantProtocol {
         }
     }
     
-    func filterContentForSearchText(searchText: String) {
-        filteredCompition = compitionModal.filter({( compitition : CompititionModal) -> Bool in
-            return  compitition.name.lowercaseString.containsString(searchText.lowercaseString)
-        })
-        tableView.reloadData()
-    }
-    
-    func dataRecieveFromServer(sender: NSData) {
+     func dataRecieveFromServer(sender: NSData) {
         do{
             let datastring = try NSJSONSerialization.JSONObjectWithData(sender, options: NSJSONReadingOptions.AllowFragments)
             
@@ -180,6 +173,29 @@ class ViewController: UITableViewController,ConstantProtocol {
             
         }
     }
+    
+    func userSelectionCompitionCompleted()  {
+        
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        filteredCompition = compitionModal.filter({( compitition : CompititionModal) -> Bool in
+            return  compitition.name.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        tableView.reloadData()
+    }
+    
+    @IBAction func nextAction(sender: UIBarButtonItem) {
+        
+//        CoreDataController.saveCompitionID(cellSelected.joinWithSeparator(","))
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "first")
+        NSUserDefaults.standardUserDefaults().setObject(cellSelected.joinWithSeparator(","), forKey: "userSelect")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        let matchVC = self.storyboard?.instantiateViewControllerWithIdentifier("matches") as! MatchesViewController
+        self.navigationController?.pushViewController(matchVC, animated: true)
+     }
+    
+
 }
 
 extension ViewController: UISearchBarDelegate {

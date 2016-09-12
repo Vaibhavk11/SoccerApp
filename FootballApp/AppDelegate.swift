@@ -13,15 +13,33 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let ud = NSUserDefaults.standardUserDefaults()
+    
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+               self.checkUserInteractionWithApp()
         UISearchBar.appearance().barTintColor = UIColor.soccerColor()
         UISearchBar.appearance().tintColor = UIColor.whiteColor()
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.soccerColor()
-        return true
+
+                return true
     }
+    
+    
+    func checkUserInteractionWithApp() {
+        
+        if let selected = NSUserDefaults.standardUserDefaults().objectForKey("userSelect") {
+            print(selected)
+            let rootController = UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("matches")
+            let navigation = UINavigationController.init(rootViewController: rootController)
+            self.window!.rootViewController = navigation;
+        }else{
+            self.window!.rootViewController = UIStoryboard(name: "Main",bundle: nil).instantiateInitialViewController()
+        }
+    }
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

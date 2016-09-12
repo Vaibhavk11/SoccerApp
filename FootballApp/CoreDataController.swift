@@ -16,6 +16,19 @@ class CoreDataController: NSObject {
     static func saveData(dict:NSDictionary)  {
         
     }
+//    static func userFirstInteraction() -> Bool  {
+//        
+////        
+////        let moc = self.getData("UserDetails")
+////        
+////        if let firstorNot = moc.first?.valueForKey("selected"){
+////            return firstorNot as! Bool
+////        }
+////    
+////        return false
+//        
+//    }
+    
     
     static  func getData(dict:String)->[NSManagedObject]  {
         
@@ -51,8 +64,26 @@ class CoreDataController: NSObject {
         catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+    }
+    static func saveCompitionID(selectedid:String) {
         
+        let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let entity =  NSEntityDescription.entityForName("UserDetails",
+                                                        inManagedObjectContext:managedContext)
+        let user = NSManagedObject(entity: entity!,
+                                     insertIntoManagedObjectContext: managedContext)
         
+        user.setValue(selectedid, forKey: "compitionID")
+        user.setValue("yes", forKey: "selected")
+        
+        do {
+            try managedContext.save()
+       
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
     
     static func saveName(compitionModal:CompititionModal) {
@@ -77,7 +108,6 @@ class CoreDataController: NSObject {
             
             if let tryResulet = moResult.first?.valueForKey("id"){
                 if tryResulet as! String==compitionModal.id{
-                    
                     return
                 }else{
                     
@@ -98,8 +128,6 @@ class CoreDataController: NSObject {
                     } catch let error as NSError  {
                         print("Could not save \(error), \(error.userInfo)")
                     }
-                    
-                    
                 }
             }else{
                 

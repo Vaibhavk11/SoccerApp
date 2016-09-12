@@ -11,6 +11,8 @@
 		8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451560C1D782C8700A357BD /* VKCheckbox.swift */; };
 		846921F91D7D530100F8391D /* FootballDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846921F71D7D530100F8391D /* FootballDataModel.xcdatamodeld */; };
 		846921FD1D7D53F100F8391D /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846921FC1D7D53F100F8391D /* CoreDataController.swift */; };
+		84791D191D800AB00012CF3B /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84791D181D800AB00012CF3B /* MatchesViewController.swift */; };
+		84791D1D1D8031630012CF3B /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84791D1C1D8031630012CF3B /* ViewController1.swift */; };
 		84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1498F1D7708A800E99CCA /* AppDelegate.swift */; };
 		84D149921D7708A800E99CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D149911D7708A800E99CCA /* ViewController.swift */; };
 		84D149951D7708A800E99CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D149931D7708A800E99CCA /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		8451560C1D782C8700A357BD /* VKCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKCheckbox.swift; sourceTree = "<group>"; };
 		846921F81D7D530100F8391D /* FootballDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FootballDataModel.xcdatamodel; sourceTree = "<group>"; };
 		846921FC1D7D53F100F8391D /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		84791D181D800AB00012CF3B /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		84791D1C1D8031630012CF3B /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		84D1498C1D7708A800E99CCA /* FootballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D1498F1D7708A800E99CCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D149911D7708A800E99CCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +117,9 @@
 				846921FB1D7D533500F8391D /* Others */,
 				846921FE1D7D540000F8391D /* Controller */,
 				84D1498F1D7708A800E99CCA /* AppDelegate.swift */,
+				84791D1C1D8031630012CF3B /* ViewController1.swift */,
 				84D149911D7708A800E99CCA /* ViewController.swift */,
+				84791D181D800AB00012CF3B /* MatchesViewController.swift */,
 				84D149931D7708A800E99CCA /* Main.storyboard */,
 			);
 			path = FootballApp;
@@ -212,8 +218,10 @@
 				846921F91D7D530100F8391D /* FootballDataModel.xcdatamodeld in Sources */,
 				84D149921D7708A800E99CCA /* ViewController.swift in Sources */,
 				846921FD1D7D53F100F8391D /* CoreDataController.swift in Sources */,
+				84791D191D800AB00012CF3B /* MatchesViewController.swift in Sources */,
 				8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */,
 				8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */,
+				84791D1D1D8031630012CF3B /* ViewController1.swift in Sources */,
 				84DA555D1D77FF510060E6BC /* CompititionModal.swift in Sources */,
 				84D149901D7708A800E99CCA /* AppDelegate.swift in Sources */,
 				84DA555B1D77FD080060E6BC /* Constant.swift in Sources */,

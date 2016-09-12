@@ -76,11 +76,65 @@
                             <outlet property="delegate" destination="59J-yh-vbh" id="bxJ-FI-xL0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="W02-ds-ABU"/>
+                    <navigationItem key="navigationItem" id="W02-ds-ABU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ilZ-9C-NRR">
+                            <connections>
+                                <action selector="nextAction:" destination="59J-yh-vbh" id="z0b-3H-OtG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EG6-UG-0ZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850" y="221"/>
+            <point key="canvasLocation" x="1781" y="81"/>
+        </scene>
+        <!--Matches View Controller-->
+        <scene sceneID="GJc-ia-AGv">
+            <objects>
+                <viewController storyboardIdentifier="matches" id="eo5-Rf-ttW" customClass="MatchesViewController" customModule="FootballApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="49m-8m-pmp"/>
+                        <viewControllerLayoutGuide type="bottom" id="4aK-1j-OUu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Zb-Du-Lik">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgp-mL-8WR">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="70" id="k4a-T9-i32" customClass="CompititionTableViewCell" customModule="FootballApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k4a-T9-i32" id="NyQ-y8-LF9">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eo5-Rf-ttW" id="Tmd-uX-X8V"/>
+                                    <outlet property="delegate" destination="eo5-Rf-ttW" id="AxC-RE-N8j"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgp-mL-8WR" firstAttribute="leading" secondItem="9Zb-Du-Lik" secondAttribute="leading" id="ay2-DZ-4tC"/>
+                            <constraint firstItem="4aK-1j-OUu" firstAttribute="top" secondItem="sgp-mL-8WR" secondAttribute="bottom" id="fMS-bW-EPN"/>
+                            <constraint firstAttribute="trailing" secondItem="sgp-mL-8WR" secondAttribute="trailing" id="pxH-jd-4Ls"/>
+                            <constraint firstItem="sgp-mL-8WR" firstAttribute="top" secondItem="49m-8m-pmp" secondAttribute="bottom" id="r6y-IW-Jk3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vjB-hx-fyh"/>
+                    <connections>
+                        <outlet property="table" destination="sgp-mL-8WR" id="QKz-Ug-aeC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NWy-Dm-ez2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="-149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mA6-Ju-kzo">
