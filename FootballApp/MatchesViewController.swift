@@ -111,7 +111,7 @@ class MatchesViewController: UIViewController,ConstantProtocol,UITableViewDelega
                     
                     var tempint = tempDict.objectForKey(matchModel.formatted_date) as! [AnyObject]
                     tempint.appendContentsOf(internalArray)
-//                    tempint.appendContentsOf()
+//                    tempint.appendConten tsOf()
                    let srt = NSSet(array: tempint)
                     
                     tempDict.setObject(srt.allObjects , forKey: matchModel.formatted_date)
