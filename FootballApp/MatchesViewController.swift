@@ -60,13 +60,12 @@ class MatchesViewController: UIViewController,ConstantProtocol,UITableViewDelega
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-//        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CompititionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MatchesTableViewCell
         
-        let  cell = UITableViewCell()
         let arr = tempDict.allKeys
-        
-        cell.textLabel!.text=((tempDict.objectForKey(arr[indexPath.section])as! [AnyObject])[indexPath.row] as! MatcheModel).localteam_name
-        
+        cell.homeTeam!.text=((tempDict.objectForKey(arr[indexPath.section])as! [AnyObject])[indexPath.row] as! MatcheModel).localteam_name
+        cell.awayTeam!.text=((tempDict.objectForKey(arr[indexPath.section])as! [AnyObject])[indexPath.row] as! MatcheModel).visitorteam_name
+        cell.matchTime!.text=((tempDict.objectForKey(arr[indexPath.section])as! [AnyObject])[indexPath.row] as! MatcheModel).time
         
         return cell
         
@@ -89,12 +88,11 @@ class MatchesViewController: UIViewController,ConstantProtocol,UITableViewDelega
             let datastring = try NSJSONSerialization.JSONObjectWithData(sender, options: NSJSONReadingOptions.AllowFragments)
             
             matches.removeAllObjects()
-            let internalArray = NSMutableArray()
+            var internalArray = [AnyObject]()
             
             for dict in datastring as! [NSDictionary]  {
                 let matchModel = MatcheModel()
                 matchModel.comp_id = dict.valueForKey("comp_id") as! String
-             
                 matchModel.formatted_date = dict.valueForKey("formatted_date") as! String
                 matchModel.matchId = dict.valueForKey("id") as! String
                 matchModel.localteam_id = dict.valueForKey("localteam_id") as! String
@@ -105,24 +103,28 @@ class MatchesViewController: UIViewController,ConstantProtocol,UITableViewDelega
                 matchModel.localteam_name = dict.valueForKey("localteam_name") as! String
                 matchModel.visitorteam_name = dict.valueForKey("visitorteam_name") as! String
               
-                print(matchModel.comp_id)
                 
-                internalArray.addObject(matchModel)
+                internalArray.append(matchModel)
+                print("before === %@",matchModel.formatted_date)
                 
-                if (tempDict.objectForKey(matchModel.comp_id) != nil) {
+                if (tempDict.objectForKey(matchModel.formatted_date) != nil) {
                     
-                    var tempint = tempDict.objectForKey(matchModel.comp_id) as! [AnyObject]
+                    var tempint = tempDict.objectForKey(matchModel.formatted_date) as! [AnyObject]
                     tempint.appendContentsOf(internalArray)
 //                    tempint.appendContentsOf()
                    let srt = NSSet(array: tempint)
                     
-                    tempDict.setObject(srt.allObjects , forKey: matchModel.comp_id)
-                    internalArray.removeAllObjects()
+                    tempDict.setObject(srt.allObjects , forKey: matchModel.formatted_date)
+                    internalArray.removeAll()
+                    print("If  === %@",matchModel.formatted_date)
                 }else{
-                    tempDict.setObject(internalArray, forKey: matchModel.comp_id)
+                    print("Else === %@",matchModel.formatted_date)
+                    tempDict.setObject(internalArray, forKey: matchModel.formatted_date)
                 }
+                
             }
             print(tempDict)
+            
          
             dispatch_async(dispatch_get_main_queue(),{
                 self.table.reloadData()

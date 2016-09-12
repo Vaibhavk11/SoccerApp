@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8432AFC31D86EA2000A6461B /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432AFC21D86EA2000A6461B /* MatchesTableViewCell.swift */; };
 		8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845156091D7820D500A357BD /* CompititionTableViewCell.swift */; };
 		8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451560C1D782C8700A357BD /* VKCheckbox.swift */; };
 		846921F91D7D530100F8391D /* FootballDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846921F71D7D530100F8391D /* FootballDataModel.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8432AFC21D86EA2000A6461B /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchesTableViewCell.swift; path = ../MatchesTableViewCell.swift; sourceTree = "<group>"; };
 		845156091D7820D500A357BD /* CompititionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompititionTableViewCell.swift; sourceTree = "<group>"; };
 		8451560C1D782C8700A357BD /* VKCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKCheckbox.swift; sourceTree = "<group>"; };
 		846921F81D7D530100F8391D /* FootballDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FootballDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		8451560B1D78213400A357BD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8432AFC21D86EA2000A6461B /* MatchesTableViewCell.swift */,
 				845156091D7820D500A357BD /* CompititionTableViewCell.swift */,
 			);
 			name = Cell;
@@ -219,6 +222,7 @@
 				84D149921D7708A800E99CCA /* ViewController.swift in Sources */,
 				846921FD1D7D53F100F8391D /* CoreDataController.swift in Sources */,
 				84791D191D800AB00012CF3B /* MatchesViewController.swift in Sources */,
+				8432AFC31D86EA2000A6461B /* MatchesTableViewCell.swift in Sources */,
 				8451560D1D782C8700A357BD /* VKCheckbox.swift in Sources */,
 				8451560A1D7820D500A357BD /* CompititionTableViewCell.swift in Sources */,
 				84791D1D1D8031630012CF3B /* ViewController1.swift in Sources */,
